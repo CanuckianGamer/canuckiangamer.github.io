@@ -1,100 +1,14 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>API Example</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		var accessToken = "<cc1db57be1ab427eb734f5b74b658151>";
-		var baseUrl = "https://api.api.ai/v1/";
-		$(document).ready(function() {
-			$("#input").keypress(function(event) {
-				if (event.which == 13) {
-					event.preventDefault();
-					send();
-				}
-			});
-			$("#rec").click(function(event) {
-				switchRecognition();
-			});
-		});
-		var recognition;
-		function startRecognition() {
-			recognition = new webkitSpeechRecognition();
-			recognition.onstart = function(event) {
-				updateRec();
-			};
-			recognition.onresult = function(event) {
-				var text = "";
-			    for (var i = event.resultIndex; i < event.results.length; ++i) {
-			    	text += event.results[i][0].transcript;
-			    }
-			    setInput(text);
-				stopRecognition();
-			};
-			recognition.onend = function() {
-				stopRecognition();
-			};
-			recognition.lang = "en-US";
-			recognition.start();
-		}
-	
-		function stopRecognition() {
-			if (recognition) {
-				recognition.stop();
-				recognition = null;
-			}
-			updateRec();
-		}
-		function switchRecognition() {
-			if (recognition) {
-				stopRecognition();
-			} else {
-				startRecognition();
-			}
-		}
-		function setInput(text) {
-			$("#input").val(text);
-			send();
-		}
-		function updateRec() {
-			$("#rec").text(recognition ? "Stop" : "Speak");
-		}
-		function send() {
-			var text = $("#input").val();
-			$.ajax({
-				type: "POST",
-				url: baseUrl + "query?v=20150910",
-				contentType: "application/json; charset=utf-8",
-				dataType: "json",
-				headers: {
-					"Authorization": "Bearer " + accessToken
-				},
-				data: JSON.stringify({ query: text, lang: "en", sessionId: "somerandomthing" }),
-				success: function(data) {
-					setResponse(JSON.stringify(data, undefined, 2));
-				},
-				error: function() {
-					setResponse("Internal Server Error");
-				}
-			});
-			setResponse("Loading...");
-		}
-		function setResponse(val) {
-			$("#response").text(val);
-		}
-	</script>
-	<style type="text/css">
-		body { width: 500px; margin: 0 auto; text-align: center; margin-top: 20px; }
-		div {  position: absolute; }
-		input { width: 400px; }
-		button { width: 50px; }
-		textarea { width: 100%; }
-	</style>
-</head>
-<body>
-	<div>
-		<input id="input" type="text"> <button id="rec">Speak</button>
-		<br>Response<br> <textarea id="response" cols="40" rows="20"></textarea>
-	</div>
-</body>
+  <head>
+    <link rel="icon" href="http://www.styzzz.com/wp-content/uploads/2016/10/dell-alienware-696x401.jpg">
+    <title>CanuckianGamer</title>
+      <body background="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQxKyJuGap8h8pxG5sytvbmY74LYKlVrbxTeHRYUIG61OHgHN1_-Q">
+        <h1>Welcome to My Website!</h1>
+        <h2>Hello Visitors!</h2>
+        <img src="http://www.planwallpaper.com/static/images/Download-Cool-Wallpaper-Cars-Background.jpg" alt="This picture isn't available right now." style="width:1920;height:1200;">
+        <img src="http://cdn.mos.cms.futurecdn.net/77f471a9aaf1538ef0088040de034c6b.jpg" alt="This picture isn't available right now." style="width:1920;height:1200;">
+        <a href="https://www.youtube.com/channel/UC5NMvmQvf73EhS-YWPh0q1w" style="font-size: 75px; text-decoration: none">Youtube Channel</a>
+      </body>
+  </head>
 </html>
