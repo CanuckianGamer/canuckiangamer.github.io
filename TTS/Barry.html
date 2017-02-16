@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <title>I Will Read Your Message!</title>
+    <style> 
+	body {
+	background-color: #001538;
+	}
+	textarea {
+    border: 1;
+    padding: 10px;
+    font-size: 18px;
+	background-color: #000c1e;
+	color: white;
+	border-color: #00235b;
+	position: absolute;
+	top: 250px;
+	left: 500px;
+	}
+	input[type="button"] {
+	 border: 1;
+    padding: 10px;
+    font-size: 18px;
+	background-color: blue;
+	color: white;
+	border-color: #00235b;
+	position: absolute;
+	top: 250px;
+	left: 750px;
+	}
+	h1 {
+	font-family: 'Special Elite', cursive;
+	color: white;
+	}
+	select { 
+	border: 1;
+    padding: 10px;
+    font-size: 18px;
+	background-color: #000c1e;
+	color: white;
+	border-color: #00235b;
+	position: absolute;
+	top: 294.5px;
+	left: 500px;
+	}
+	</style>
+
+</head>
+<body>
+
+ 
+ <h1 align="center">Message Reader 3000</h1>
+<script src='responsivevoice.js'></script>
+<script src="jquery-2.1.4.min.js"></script>
+ 
+<textarea id="text" cols="20" rows="1">Your Message Here</textarea>
+ 
+<select id="voiceselection"></select> 
+ 
+<input 
+  onclick="responsiveVoice.speak($('#text').val(),$('#voiceselection').val());" 
+  type="button" 
+  value="Play" 
+/>
+ 
+<script>
+        //Populate voice selection dropdown
+        var voicelist = responsiveVoice.getVoices();
+        var vselect = $("#voiceselection");
+        $.each(voicelist, function() {
+                vselect.append($("<option />").val(this.name).text(this.name));
+        });
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
