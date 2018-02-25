@@ -15,8 +15,8 @@
 <body>
   <script>
     $.getJSON('https://api-etc.ethermine.org/miner/:197787b0be02455fa75687a45c460d6da26d9b13/currentStats', function(data) {
-		$("#mined").append(data.data.validShares);
-    $("#bal").append(data.data.unpaid*0.000000000000000001);
+    document.getElementById("mined").innerHTML = data.data.validShares;
+    document.getElementById("bal").innerHTML = data.data.unpaid*0.000000000000000001;
     //data is the JSON string
     });
   </script>
@@ -116,7 +116,7 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title" id="bal">-</p>
+                <p class="title" id="bal"></p>
                 <p class="subtitle">Balance</p>
               </article>
             </div>
