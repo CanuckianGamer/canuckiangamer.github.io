@@ -12,7 +12,13 @@
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
 </head>
 <body>
-
+  <script>
+    $.getJSON('https://api-etc.ethermine.org/miner/:197787b0be02455fa75687a45c460d6da26d9b13/currentStats', function(data) {
+		$("#mined").append(data.data.validShares);
+    $("#bal").append(data.data.unpaid*0.000000000000000001);
+    //data is the JSON string
+    });
+  </script>
   <!-- START NAV -->
   <nav class="navbar is-white">
     <div class="container">
@@ -109,14 +115,14 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">439k</p>
-                <p class="subtitle">Users</p>
+                <p class="title" id="bal">-</p>
+                <p class="subtitle">Balance</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">59k</p>
-                <p class="subtitle">Products</p>
+                <p class="title" id="mined">-</p>
+                <p class="subtitle">Mined</p>
               </article>
             </div>
             <div class="tile is-parent">
