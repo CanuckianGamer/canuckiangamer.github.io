@@ -22,6 +22,7 @@
     document.getElementById("mined").innerHTML = data.data.validShares;
     document.getElementById("bal").innerHTML = round(data.data.unpaid*0.000000000000000001, 10);
 	  document.getElementById("hash").innerHTML = round(data.data.reportedHashrate / 1000000, 1) + "MH/S";
+    document.getElementById("stale").innerHTML = data.data.invalidShares;
     //data is the JSON string
     });
   </script>
@@ -109,7 +110,7 @@
           <div class="hero-body">
             <div class="container">
               <h1 class="title">
-                Hello, Admin.
+                Hello, Nascent!
               </h1>
               <h2 class="subtitle">
                 I hope you are having a great day!
@@ -133,14 +134,14 @@
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title" id="hash">-</p>
-                <p class="subtitle">Hashrate</p>
+                <p class="title" id="stale">-</p>
+                <p class="subtitle">Stale Shares</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">19</p>
-                <p class="subtitle">Exceptions</p>
+                <p class="title" id="hash">-</p>
+                <p class="subtitle">Hashrate</p>
               </article>
             </div>
           </div>
