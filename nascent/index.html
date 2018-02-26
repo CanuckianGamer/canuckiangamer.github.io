@@ -17,7 +17,7 @@
     $.getJSON('https://api-etc.ethermine.org/miner/:197787b0be02455fa75687a45c460d6da26d9b13/currentStats', function(data) {
     document.getElementById("mined").innerHTML = data.data.validShares;
     document.getElementById("bal").innerHTML = data.data.unpaid*0.000000000000000001;
-	document.getElementById("hash").innerHTML = data.data.reportedHashrate;
+	  document.getElementById("hash").innerHTML = data.data.reportedHashrate;
     //data is the JSON string
     });
   </script>
@@ -26,7 +26,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item brand-text" href="../">
-          Nascent        
+          Nascent
         </a>
         <div class="navbar-burger burger" data-target="navMenu">
           <span></span>
@@ -210,7 +210,7 @@
               <footer class="card-footer">
                 <a href="#" class="card-footer-item">View All</a>
               </footer>
-            </div>        
+            </div>
           </div>
           <div class="column is-6">
             <div class="card">
