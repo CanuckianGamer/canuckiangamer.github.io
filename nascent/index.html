@@ -18,7 +18,7 @@
     $.getJSON('https://api-etc.ethermine.org/miner/:197787b0be02455fa75687a45c460d6da26d9b13/currentStats', function(data) {
     document.getElementById("mined").innerHTML = data.data.validShares;
     document.getElementById("bal").innerHTML = data.data.unpaid*0.000000000000000001;
-	  document.getElementById("hash").innerHTML = rounded + "MH/S";
+//	  document.getElementById("hash").innerHTML = rounded + "MH/S";
     //data is the JSON string
     });
   </script>
