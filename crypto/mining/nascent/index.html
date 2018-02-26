@@ -19,11 +19,10 @@
       return Math.round(value * multiplier) / multiplier;
     }
     $.getJSON('https://api-etc.ethermine.org/miner/:197787b0be02455fa75687a45c460d6da26d9b13/currentStats', function(data) {
-    //document.getElementById("mined").innerHTML = data.data.validShares;
+    document.getElementById("mined").innerHTML = data.data.validShares;
     document.getElementById("bal").innerHTML = round(data.data.unpaid*0.000000000000000001, 10);
     document.getElementById("hash").innerHTML = round(data.data.reportedHashrate / 1000000, 1) + "MH/S";
     document.getElementById("stale").innerHTML = data.data.invalidShares;
-    $( "p.mined").replaceWith( data.data.validShares );
     //data is the JSON string
     });
   </script>
